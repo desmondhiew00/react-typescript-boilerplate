@@ -1,0 +1,41 @@
+{
+  "compilerOptions": {
+    "noImplicitAny": false,
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react",
+    "baseUrl": "./src",
+    "paths": {
+      "@api/*": ["./api/*"],
+      "@assets/*": ["./assets/*"],
+      "@components/*": ["./components/*"],
+      "@constants/*": ["./constants/*"],
+      "@modules/*": ["./modules/*"],
+      "@app/*": ["./modules/App/*"],
+      "@store/*": ["./store/*"],
+      "@reducers/*": ["./store/reducers/*"],
+      "@actions/*": ["./store/actions/*"],
+      "@utils/*": ["./utils/*"],
+      "@styles/*": ["./styles/*"],
+
+      "@api": ["./api/index"],
+      "@assets": ["./assets/index"],
+      "@components": ["./components/index"],
+      "@constants": ["./constants/index"],
+      "@actions": ["./store/actions/index"],
+      "@utils": ["./utils/index"]
+    }
+  },
+  "include": ["src"]
+}

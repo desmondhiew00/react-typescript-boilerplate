@@ -1,0 +1,33 @@
+@import '../../styles/variables';
+
+.list-table-view {
+  .config-icon {
+    font-size: 14px;
+    padding: 6px;
+    cursor: pointer;
+    color: #929292;
+    border-radius: 3px;
+    user-select: none;
+
+    &:hover {
+      color: black;
+      background: rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  .config-icon-active {
+    color: $link-color;
+    // background: rgba(0, 0, 0, 0.1);
+  }
+
+  .toolbar {
+  }
+}
+
+tr.drop-over-downward td {
+  border-bottom: 2px dashed #1890ff;
+}
+
+tr.drop-over-upward td {
+  border-top: 2px dashed #1890ff;
+}

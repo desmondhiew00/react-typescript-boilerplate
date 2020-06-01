@@ -1,0 +1,15 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@import 'variables';
+@import 'animations';
+@import "commons";
+@import "antd-custom";
+@import "colors";
+
+body {
+  font-family: 'Source Sans Pro', sans-serif !important;
+  background: #f0f2f5 !important;
+  background-color: #f0f2f5 !important;
+}
