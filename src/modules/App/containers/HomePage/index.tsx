@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React, { forwardRef, useImperativeHandle, useState, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Button, Card, Form as AntdForm, Radio } from 'antd';
