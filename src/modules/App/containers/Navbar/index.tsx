@@ -8,7 +8,7 @@ import { RootState } from 'store/types';
 import { setSidebarCollapsed } from '@actions/app.actions';
 import { requestLogout } from '@actions/auth.actions';
 
-import './Navbar.scss';
+import './style/index.scss';
 
 const { Header } = Layout;
 

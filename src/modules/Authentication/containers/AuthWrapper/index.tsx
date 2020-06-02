@@ -2,7 +2,7 @@ import React from 'react';
 import Scrollbars from 'react-custom-scrollbars';
 import AuthHeader from '../../components/AuthHeader';
 
-import './AuthWrapper.scss';
+import './style/index.scss';
 
 export const AuthWrapper = props => {
   const { children } = props;

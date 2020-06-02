@@ -12,8 +12,8 @@ import { requestRevoke } from '@actions/auth.actions';
 import 'styles/main.scss';
 
 import { NotFoundPage } from './components/NotFoundPage/Loadable';
-import AuthRoutes from './AuthRoutes';
-import PrivateRoutes from './App';
+import AuthRoutes from '../Authentication';
+import PrivateRoutes from './containers/App';
 
 WebFont.load({
   google: {

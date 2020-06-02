@@ -21,7 +21,7 @@ import update from 'immutability-helper';
 import { TablePaginationConfig, ColumnsType } from 'antd/lib/table';
 import DraggableBodyRow from './DraggableRow';
 
-import './ListTableView.scss';
+import './style/index.scss';
 
 const defaultPageSize = 10;
 const defaultPage = 1;

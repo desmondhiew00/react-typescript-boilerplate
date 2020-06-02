@@ -5,7 +5,7 @@ import { FieldProps } from 'formik';
 import _ from 'lodash';
 import { QuestionCircleOutlined } from '@ant-design/icons';
 import { FormItemProps } from 'antd/lib/form/FormItem';
-import { getFormLayout, LayoutType } from './FormLayout';
+import { getFormLayout, LayoutType } from '../_util/form-layout';
 
 const Label: React.FC<Partial<LabelProps>> = prop => {
   const { label, hint } = prop;

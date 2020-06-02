@@ -3,7 +3,7 @@
 import React from 'react';
 import { DragSource, DropTarget } from 'react-dnd';
 
-import './ListTableView.scss';
+import './style/index.scss';
 
 let dragingIndex = -1;
 class BodyRow extends React.Component {

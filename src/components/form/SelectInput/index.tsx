@@ -7,7 +7,7 @@ import { FieldProps } from 'formik';
 import { SelectProps } from 'antd/lib/select';
 import { apiCaller } from '@api';
 import { LoadingDots } from '@components';
-import FormItem from './FormItem';
+import FormItem from '../FormItem';
 
 const { Option } = Select;
 const commonLabelKeys = ['name', 'title'];
@@ -20,6 +20,7 @@ export const SelectInput = forwardRef((props: SelectInput, ref) => {
   const [searching, setSearching] = useState(false);
   const [options, setOptions] = useState<object[] | string[]>(props.options || []);
 
+  const multiple = props.mode === 'multiple' || props.mode === 'tags';
   const limit = props.api?.limit || 0;
   const total = useRef(0);
   const offset = useRef(0);
@@ -78,7 +79,6 @@ export const SelectInput = forwardRef((props: SelectInput, ref) => {
   };
 
   const handleChange = (value: OptionValue, option: any) => {
-    const multiple = props.mode === 'multiple';
     if (multiple && props.selectAll && _.includes(value, 'select-all-option')) {
       const newValue = _.map(options, valueKey);
       setFieldValue(field.name, newValue);
@@ -118,7 +118,7 @@ export const SelectInput = forwardRef((props: SelectInput, ref) => {
   return (
     <FormItem {..._.omit(props, selectInputProps)}>
       <Select
-        mode={props.mode}
+        {..._.omit(props, selectInputProps)}
         loading={fetching || searching}
         value={field.value}
         notFoundContent={<Empty />}
@@ -132,7 +132,7 @@ export const SelectInput = forwardRef((props: SelectInput, ref) => {
         }}
         getPopupContainer={t => t}
       >
-        {props.selectAll && props.mode === 'multiple' && <Option value="select-all-option">Select All</Option>}
+        {props.selectAll && multiple && <Option value="select-all-option">Select All</Option>}
         {_.map(_.concat(options, extraOptions), (option: object, index: number) => (
           <Option
             key={_.get(option, valueKey) || index}

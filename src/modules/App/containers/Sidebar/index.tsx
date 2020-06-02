@@ -13,7 +13,7 @@ import { APP_NAME, SIDEBAR_MENU } from '@constants';
 import { RootState } from 'store/types';
 import { setSidebarCollapsed } from '@actions/app.actions';
 
-import './Sidebar.scss';
+import './style/index.scss';
 
 const THEME = { theme: 'dark', width: 256, collapsedWidth: 80 };
 

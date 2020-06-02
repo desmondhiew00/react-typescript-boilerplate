@@ -4,7 +4,7 @@ import { Input } from 'antd';
 import { FieldProps } from 'formik';
 import _ from 'lodash';
 import { InputProps, TextAreaProps, SearchProps } from 'antd/lib/input';
-import FormItem, { omitFormikProps } from './FormItem';
+import FormItem, { omitFormikProps } from '../FormItem';
 
 type format = 'mobile' | 'tel' | 'prefix' | 'uppercase' | 'lowercase' | 'capitalize' | 'camelcase' | undefined;
 interface CustomProps {

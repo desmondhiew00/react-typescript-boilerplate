@@ -1,12 +1,12 @@
 import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
-import IdleTimer from './components/IdleTimer';
-import { HomePage } from './containers/HomePage';
-import { Navbar } from './containers/Navbar';
-import { Sidebar } from './containers/Sidebar';
+import IdleTimer from '../../components/IdleTimer';
+import { HomePage } from '../HomePage';
+import { Navbar } from '../Navbar';
+import { Sidebar } from '../Sidebar';
 
-import './App.scss';
+import './style/index.scss';
 
 export const App = () => {
   return (

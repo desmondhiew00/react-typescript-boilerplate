@@ -20,7 +20,8 @@ module.exports = {
     'import/named': 'off',
     '@typescript-eslint/no-use-before-define': 'off',
     'import/no-named-as-default': 'off',
-    'import/no-named-as-default-member': 'off'
+    'import/no-named-as-default-member': 'off',
+    'react/jsx-props-no-spreading': 'off'
   },
   overrides: [
     {

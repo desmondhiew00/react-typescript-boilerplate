@@ -6,7 +6,7 @@ import _ from 'lodash';
 import { Breadcrumb, ListTableView, StatusTag, ListTableViewHandles } from '@components';
 import { TextAreaInput, SelectInput } from '@components/form';
 import { required } from '@utils/form-validator.utils';
-import { Layout as FormLayout } from '@components/form/FormItem/FormLayout';
+import { Layout as FormLayout } from '@components/form/_util/form-layout';
 import { useTranslation } from 'react-i18next';
 import { translations, LanguageKey } from 'locales/i18n';
 import { getUsers } from '@api/users.api';
@@ -15,7 +15,7 @@ import { columnSorter } from '@utils/antd.utils';
 // Types
 import { RadioChangeEvent } from 'antd/lib/radio';
 
-import './HomePage.scss';
+import './style/index.scss';
 
 export function HomePage() {
   const { t, i18n } = useTranslation();
@@ -53,21 +53,25 @@ export function HomePage() {
               <Form>
                 <Field
                   name="userId"
-                  label="User"
-                  component={SelectInput}
-                  api={{
-                    url: '/users',
-                    method: 'get',
-                    rowsKey: 'payload.rows',
-                    totalKey: 'payload.count',
-                    infiniteScroll: true,
-                    limit: 30
-                  }}
-                  mode="multiple"
-                  valueKey="id"
-                  onSelect={(v, o, r) => console.log('onSelect: ', { v, o, r })}
-                  onChange={(v, o, r) => console.log('onChange: ', { v, o, r })}
-                  optionRender={o => `${o.id}: ${o.name}`}
+                  render={p => (
+                    <SelectInput
+                      {...p}
+                      label="User"
+                      api={{
+                        url: '/users',
+                        method: 'get',
+                        rowsKey: 'payload.rows',
+                        totalKey: 'payload.count',
+                        infiniteScroll: true,
+                        limit: 30
+                      }}
+                      mode="tags"
+                      valueKey="id"
+                      onSelect={(v, o, r) => console.log('onSelect: ', { v, o, r })}
+                      onChange={(v, o, r) => console.log('onChange: ', { v, o, r })}
+                      optionRender={o => `${o.id}: ${o.name}`}
+                    />
+                  )}
                 />
                 <Button htmlType="submit">Submit</Button>
               </Form>

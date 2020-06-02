@@ -63,26 +63,81 @@ Start your `create-react-app` projects in seconds with the best, industry-standa
 Create React App with the template
 
 ```shell
-npx create-react-app --template cra-template-rb my-app
+yarn
 ```
 
-Start and check our example app, if you want
+Start
 
 ```shell
-cd my-app
 yarn start
 ```
 
-Remove the example app to start your project!
+## Structure
 
-```shell
-yarn cleanAndSetup
+```
+.
+├── config                                # Webpack and env Configurations
+├── src                                   # App source code
+│   ├── api                               # All of restful API
+│   ├── assets                            # Assets (e.g. images, etc.)
+│   ├── components                        # Reusable components
+│   │   ├── form                          # Reusable formik input components
+│   │   │   ├── component                 #
+│   │   │   │   ├── style                 # 
+│   │   │   │   │   └── index.scss        # Component's main styling
+│   │   │   │   ├── index.tsx             # Main component
+│   │   │   │   └── Loadable.tsx          # Lazy load component
+│   │   ├── component                     #
+│   │   │   ├── style                     #
+│   │   │   │   ├── index.scss            #
+│   │   │   ├── index.tsx                 #
+│   │   │   └── Loadable.tsx              #
+│   ├── constants                         # App's static variables
+│   ├── locales                           # I18next configuration, languages
+│   ├── modules                           # App modules
+│   │   └── module                        # App modules
+│   │   │   ├── components                #
+│   │   │   │   └── component             #
+│   │   │   │   │   ├── style             #
+│   │   │   │   │   │   └── index.scss    #
+│   │   │   │   │   ├── index.tsx         #
+│   │   │   │   │   └── Loadable.tsx      #
+│   │   │   ├── containers                #
+│   │   │   │   └── container             #
+│   │   │   │   │   ├── style             #
+│   │   │   │   │   │   └── index.scss    #
+│   │   │   │   │   ├── index.tsx         #
+│   │   │   │   │   └── Loadable.tsx      #
+│   │   │   └── index.ts                  #
+│   ├── store                             # Redux store configuration
+│   │   ├── actions                       # All store actions
+│   │   ├── reducers                      # All store reducers
+│   │   ├── types                         # Reducer types (for typescript)
+│   │   └── reducer.ts                    # Main reducer (combine reducers)
+│   ├── styles                            #
+│   │   └── main.scss                     # App main styling
+│   ├── utils                             #
+│   │   └── utils.ts                      # Common utilities function (helper)
+├── .eslintrc.js                          # Eslint configuration
+├── .tsconfig.json                        # Typescript configuration
+├── .tailwind.config.js                   # Tailwind CSS configuration
+├── .env                                  # Env for development
+├── .env.local                            # Env for local development
+└── .env.production                       # Env for production
 ```
 
 ## Features
-
+```
+- React
+- Redux
+- Typescript
+- i18n
+- Tailwind CSS
+- Path Resolver
+- Formik
+- Antd 4.0
+```
 <dl>
-
   <dt>Predictable state management</dt>
   <dd>Unidirectional data flow allows for change logging and time travel debugging.</dd>
 
@@ -119,28 +174,28 @@ But wait... there's more!
 - _Stay fast_: Profile your app's performance from the comfort of your command
   line!
 
-<sub><i>Keywords: Create React App, React Boilerplate, Custom Template, Typescript, React.js, Redux, Hot Reloading, ESNext, Babel, react-router, Offline First, ServiceWorker, `styled-components`, redux-saga, FontFaceObserver</i></sub>
+<sub><i>Keywords: Create React App, React Boilerplate, Custom Template, Typescript, React.js, Redux, Hot Reloading, ESNext, Babel, react-router, Offline First, ServiceWorker, `styled-components`, redux-saga, FontFaceObserver, Tailwind CSS, Formik, Path resolver</i></sub>
 
-## Contributors
+<!-- ## Contributors -->
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
-<table>
+<!-- <table>
   <tr>
     <td align="center"><a href="https://github.com/Can-Sahin"><img src="https://avatars2.githubusercontent.com/u/33245689" width="80px;" alt=""/><br /><sub><b>Can Sahin</b></sub></a><br /><a href="https://github.com/react-boilerplate/react-boilerplate-cra-template/commits?author=Can-Sahin" title="Code">💻</a> <a href="https://github.com/react-boilerplate/react-boilerplate-cra-template/commits?author=Can-Sahin" title="Documentation">📖</a> <a href="#ideas-Can-Sahin" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/react-boilerplate/react-boilerplate-cra-template/pulls?q=is%3Apr+reviewed-by%3ACan-Sahin" title="Reviewed Pull Requests">👀</a> <a href="https://github.com/react-boilerplate/react-boilerplate-cra-template/commits?author=Can-Sahin" title="Tests">⚠️</a></td>
     <td align="center"><a href="https://github.com/receptiryaki"><img src="https://avatars0.githubusercontent.com/u/3495307" width="80px;" alt=""/><br /><sub><b>Recep Tiryaki</b></sub></a><br /><a href="https://github.com/react-boilerplate/react-boilerplate-cra-template/commits?author=receptiryaki" title="Code">💻</a> <a href="#ideas-receptiryaki" title="Ideas, Planning, & Feedback">🤔</a></td>
   </tr>
-</table>
+</table> -->
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
-
+<!-- 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
 
 ## License
 
 This project is licensed under the MIT license, Copyright (c) 2019 Can Sahin.
-For more information see `LICENSE.md`.
+For more information see `LICENSE.md`. -->

@@ -1,5 +1,5 @@
 /* eslint-disable import/export */
 
-export { FormItem } from './FormItem/FormItem';
+export * from './FormItem';
 export * from './TextInput';
 export * from './SelectInput';
