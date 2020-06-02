@@ -4,7 +4,7 @@ import { Button, Card, Form as AntdForm, Radio } from 'antd';
 import { Formik, Form, Field } from 'formik';
 import _ from 'lodash';
 import { Breadcrumb, ListTableView, StatusTag, ListTableViewHandles } from '@components';
-import { TextAreaInput } from '@components/form';
+import { TextAreaInput, SelectInput } from '@components/form';
 import { required } from '@utils/form-validator.utils';
 import { Layout as FormLayout } from '@components/form/FormItem/FormLayout';
 import { useTranslation } from 'react-i18next';
@@ -48,6 +48,32 @@ export function HomePage() {
         <Breadcrumb title="Home page" subTitle="Home page description" />
 
         <div className="m-5">
+          <Card className="mb-5">
+            <Formik onSubmit={v => console.log('Select Input Submit: ', v)} initialValues={{}}>
+              <Form>
+                <Field
+                  name="userId"
+                  label="User"
+                  component={SelectInput}
+                  api={{
+                    url: '/users',
+                    method: 'get',
+                    rowsKey: 'payload.rows',
+                    totalKey: 'payload.count',
+                    infiniteScroll: true,
+                    limit: 30
+                  }}
+                  mode="multiple"
+                  valueKey="id"
+                  onSelect={(v, o, r) => console.log('onSelect: ', { v, o, r })}
+                  onChange={(v, o, r) => console.log('onChange: ', { v, o, r })}
+                  optionRender={o => `${o.id}: ${o.name}`}
+                />
+                <Button htmlType="submit">Submit</Button>
+              </Form>
+            </Formik>
+          </Card>
+
           <Card className="mb-5">
             <ListTableView
               wrappedComponentRef={tableRef}

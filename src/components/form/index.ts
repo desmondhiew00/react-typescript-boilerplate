@@ -2,3 +2,4 @@
 
 export { FormItem } from './FormItem/FormItem';
 export * from './TextInput';
+export * from './SelectInput';
