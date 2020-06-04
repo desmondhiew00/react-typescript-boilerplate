@@ -6,3 +6,8 @@ export const setSidebarCollapsed = (collapsed: boolean) => (dispatch?: Dispatch)
   if (!dispatch) dispatch = store.dispatch;
   dispatch(Actions.setSidebarCollapsed(collapsed));
 };
+
+export const setMobileView = (mobileView: boolean) => (dispatch?: Dispatch) => {
+  if (!dispatch) dispatch = store.dispatch;
+  dispatch(Actions.setMobileView(mobileView));
+};

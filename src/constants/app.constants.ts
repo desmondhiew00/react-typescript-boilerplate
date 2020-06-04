@@ -6,4 +6,4 @@ export { store } from 'index';
 declare const Colors: ['red', 'blue', 'green'];
 export declare type Colors = typeof Colors[number];
 
-// export const isAuthenticated = () => store.getState().auth.isAuthenticated;
+export const SIDEBAR = { theme: 'dark', width: 256, collapsedWidth: 80 };

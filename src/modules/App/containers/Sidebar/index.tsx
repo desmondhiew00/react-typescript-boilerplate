@@ -1,7 +1,8 @@
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable global-require */
 import React, { useState, useEffect } from 'react';
-import { connect, ConnectedProps } from 'react-redux';
+// import { connect, ConnectedProps } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { withRouter, RouteComponentProps, Link } from 'react-router-dom';
 import { Layout, Menu, Drawer } from 'antd';
 import { useMediaQuery } from 'react-responsive';
@@ -9,13 +10,11 @@ import Scrollbar from 'react-custom-scrollbars';
 import _ from 'lodash';
 import { splitStringToArray } from '@utils';
 import * as Icons from '@ant-design/icons';
-import { APP_NAME, SIDEBAR_MENU } from '@constants';
+import { APP_NAME, SIDEBAR_MENU, SIDEBAR } from '@constants';
 import { RootState } from 'store/types';
-import { setSidebarCollapsed } from '@actions/app.actions';
+import { setSidebarCollapsed, setMobileView } from '@actions/app.actions';
 
 import './style/index.scss';
-
-const THEME = { theme: 'dark', width: 256, collapsedWidth: 80 };
 
 const { Sider } = Layout;
 const { SubMenu } = Menu;
@@ -42,15 +41,14 @@ const SidebarComponent = (props: Props) => {
   const { pathname } = location;
   const isTablet = useMediaQuery({ maxWidth: 1224 });
 
-  const [mobileView, setMobileView] = useState(false);
+  const { collapsed, mobileView } = useSelector((state: RootState) => ({
+    collapsed: state.app.sidebar.collapsed,
+    mobileView: state.app.mobileView
+  }));
 
-  const [collapsed, setCollapsed] = useState(props.collapsed);
+  // const [mobileView, setMobileView] = useState(false);
   const [openKeys, setOpenKeys] = useState<string[]>([]);
   const [selectedKeys, setSelectedKeys] = useState<string[]>([]);
-
-  useEffect(() => {
-    setCollapsed(props.collapsed);
-  }, [props.collapsed]);
 
   useEffect(() => {
     if (isTablet) setSidebarCollapsed(true);
@@ -78,7 +76,7 @@ const SidebarComponent = (props: Props) => {
   };
 
   const onBreakpoint = (broken: boolean) => {
-    setMobileView(broken);
+    setMobileView(broken)();
     if (broken) setSidebarCollapsed(true)();
   };
 
@@ -116,7 +114,7 @@ const SidebarComponent = (props: Props) => {
         <Drawer
           placement="left"
           visible={mobileView ? !collapsed : false}
-          bodyStyle={{ padding: 0, background: THEME.theme === 'dark' ? '#001529' : undefined }}
+          bodyStyle={{ padding: 0, background: SIDEBAR.theme === 'dark' ? '#001529' : undefined }}
           closable={false}
           className="drawer"
           onClose={() => setSidebarCollapsed(true)()}
@@ -129,13 +127,13 @@ const SidebarComponent = (props: Props) => {
       <Sider
         className="sider"
         theme="dark"
-        width={THEME.width}
+        width={SIDEBAR.width}
         trigger={null}
         collapsible
         collapsed={mobileView ? true : collapsed}
         breakpoint="md"
         onBreakpoint={onBreakpoint}
-        collapsedWidth={mobileView ? 0 : THEME.collapsedWidth}
+        collapsedWidth={mobileView ? 0 : SIDEBAR.collapsedWidth}
       >
         {SidebarTitle}
         <div className="menu-container">
@@ -199,12 +197,13 @@ const renderMenuItem = (menu: SIDEBAR_MENU, { toPrefix = '' }: { toPrefix?: stri
   );
 };
 
-const mapStateToProps = (state: RootState) => ({
-  collapsed: state.app.sidebar.collapsed
-});
-const connector = connect(mapStateToProps, {});
-export const Sidebar = withRouter(connector(SidebarComponent));
+// const mapStateToProps = (state: RootState) => ({
+//   collapsed: state.app.sidebar.collapsed
+// });
+// const connector = connect(mapStateToProps, {});
+export const Sidebar = withRouter(SidebarComponent);
 export default Sidebar;
 
-type PropsFromRedux = ConnectedProps<typeof connector>;
-type Props = RouteComponentProps & PropsFromRedux;
+// type PropsFromRedux = ConnectedProps<typeof connector>;
+// type Props = RouteComponentProps & PropsFromRedux;
+type Props = RouteComponentProps;
